@@ -13,16 +13,6 @@ class ChargesReturns extends Migration
      */
     public function up()
     {
-        //
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
         Schema::create('charges_returns', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sanborns_id');
@@ -34,5 +24,15 @@ class ChargesReturns extends Migration
             $table->string('type')->nullable();
             $table->timestamps();
         });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+
     }
 }

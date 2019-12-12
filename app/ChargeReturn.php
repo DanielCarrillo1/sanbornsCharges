@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class charge_return extends Model
+class chargeReturn extends Model
 {
     protected $guarded = [];
 

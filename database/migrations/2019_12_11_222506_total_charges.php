@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CheckAccounts extends Migration
+class TotalCharges extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CheckAccounts extends Migration
      */
     public function up()
     {
-        Schema::create('check_accounts', function (Blueprint $table) {
+        Schema::create('total_charges', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sanborns_id');
+            $table->bigInteger('total');
+            $table->bigInteger('import');
             $table->timestamps();
         });
     }
