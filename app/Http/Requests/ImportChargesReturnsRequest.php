@@ -24,7 +24,7 @@ class ImportChargesReturnsRequest extends FormRequest
     public function rules()
     {
         return [
-            'files' => 'required|mimes:txt',
+            'files.*' => 'required|mimetypes:text/*',
         ];
     }
 }

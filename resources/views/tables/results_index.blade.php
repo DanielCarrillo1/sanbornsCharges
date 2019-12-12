@@ -4,9 +4,9 @@
             <thead class="thead-dark">
             <tr>
                 <th scope="col">Sanborns_id</th>
-                <th scope="col">Total Cobrado</th>
+                <th scope="col">Total Cobros</th>
                 <th scope="col">Importe Cobros</th>
-                <th scope="col">Total Devuelto</th>
+                <th scope="col">Total Devoluciones</th>
                 <th scope="col">Importe Devoluciones</th>
                 <th scope="col">Detalles cuenta</th>
             </tr>

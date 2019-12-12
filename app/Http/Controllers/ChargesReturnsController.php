@@ -77,11 +77,11 @@ class ChargesReturnsController extends Controller
         TotalReturn::truncate();
         TotalCharge::truncate();
 
-        DB::select('INSERT INTO total_charges (sanborns_id, total, import) 
+        DB::select('INSERT INTO total_returns (sanborns_id, total, import) 
                     SELECT sanborns_id, COUNT(*), sum(import) FROM charges_returns
                     where answer is null group by sanborns_id');
 
-        DB::select('INSERT INTO total_returns (sanborns_id, total, import)
+        DB::select('INSERT INTO total_charges (sanborns_id, total, import)
                     SELECT sanborns_id, COUNT(*), sum(import) FROM charges_returns 
                     where answer = "00" group by sanborns_id');
     }

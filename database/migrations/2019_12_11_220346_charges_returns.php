@@ -21,7 +21,7 @@ class ChargesReturns extends Migration
             $table->string('answer')->nullable();
             $table->integer('reference');
             $table->string('source');
-            $table->string('type')->nullable();
+            $table->string('type');
             $table->timestamps();
         });
     }
