@@ -1,5 +1,3 @@
-<div class="alert-primary mt-2">Autorización: 6 Digitos</div>
-<div class="alert-primary ">Terminación Tarjeta: 4 Digitos</div>
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>

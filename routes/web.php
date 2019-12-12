@@ -27,3 +27,7 @@ Route::post('/storechargesreturns', 'ChargesReturnsController@storeChargesReturn
 Route::post('/search', 'ChargesReturnsController@search')->name('Search');
 Route::post('searchdetails/', 'ChargesReturnsController@searchDetails')->name('SearchDetails');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
