@@ -22,5 +22,10 @@ class checkAccount extends Model
         return $this->hasOne(TotalCharge::class,'sanborns_id', 'sanborns_id');
     }
 
+    public function users()
+    {
+        return $this->hasOne(User::class, 'sanborns_id', 'sanborns_id');
+    }
+
     protected $table = 'check_accounts';
 }

@@ -4,6 +4,8 @@
             <thead class="thead-dark">
             <tr>
                 <th scope="col">Sanborns_id</th>
+                <th scope="col">Email</th>
+                <th scope="col">Nombre</th>
                 <th scope="col">Total Cobros</th>
                 <th scope="col">Importe Cobros</th>
                 <th scope="col">Total Devoluciones</th>
@@ -15,6 +17,16 @@
             @foreach($searchedData as $result)
                 <tr>
                     <td>{{ $result->sanborns_id }}</td>
+                    @if(isset($result->users->email))
+                        <td>{{ $result->users->email }}</td>
+                    @else
+                        <td>NULL</td>
+                    @endif
+                    @if(isset($result->users->name))
+                        <td>{{ $result->users->name }}</td>
+                    @else
+                        <td>NULL</td>
+                    @endif
                     @if(isset($result->charges->total))
                         <td>{{ $result->charges->total }}</td>
                     @else

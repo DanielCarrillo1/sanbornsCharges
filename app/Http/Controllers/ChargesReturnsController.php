@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\TotalCharge;
-use App\TotalReturn;
 use App\ChargeReturn;
 use App\CheckAccount;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Http\Requests\SearchesRequest;
 use App\Http\Requests\ImportChargesReturnsRequest;
 
@@ -21,7 +18,7 @@ class ChargesReturnsController extends Controller
 
     public function index()
     {
-        $searchedData = CheckAccount::with('charges', 'returns')->get();
+        $searchedData = CheckAccount::with('charges', 'returns', 'users')->get();
 
         return view("index", compact('searchedData'));
     }
@@ -68,22 +65,8 @@ class ChargesReturnsController extends Controller
                 }
             }
         }
-        $this->numberChargesReturns();
+        numberChargesReturns();
         return back();
-    }
-
-    public function numberChargesReturns()
-    {
-        TotalReturn::truncate();
-        TotalCharge::truncate();
-
-        DB::select('INSERT INTO total_returns (sanborns_id, total, import) 
-                    SELECT sanborns_id, COUNT(*), sum(import) FROM charges_returns
-                    where answer is null group by sanborns_id');
-
-        DB::select('INSERT INTO total_charges (sanborns_id, total, import)
-                    SELECT sanborns_id, COUNT(*), sum(import) FROM charges_returns 
-                    where answer = "00" group by sanborns_id');
     }
 
     public function search(SearchesRequest $request){
@@ -100,7 +83,7 @@ class ChargesReturnsController extends Controller
 
     public function searchDetails(Request $request){
         $sanborns_id = $request->input('sanborns_id');
-        $details = ChargeReturn::where('sanborns_id', $sanborns_id)->get();
+        $details = ChargeReturn::where('sanborns_id', $sanborns_id)->orderBy('type')->get();
 
         return view("details", compact('details'));
     }
