@@ -83,7 +83,7 @@ class ChargesReturnsController extends Controller
 
     public function searchDetails(Request $request){
         $sanborns_id = $request->input('sanborns_id');
-        $details = ChargeReturn::where('sanborns_id', $sanborns_id)->orderBy('type')->get();
+        $details = ChargeReturn::where('sanborns_id', $sanborns_id)->orderBy('type')->orderBy('date')->get();
 
         return view("details", compact('details'));
     }

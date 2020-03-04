@@ -24,7 +24,7 @@ class SearchesRequest extends FormRequest
     public function rules()
     {
         return [
-            'sanborns_id' => 'regex:/^(?:\d{0,9}(?:[\r\n]\d{0,9})*)?$/i|required',
+            'sanborns_id' => 'regex:/^(?:\d{0,9}(?:[\r\n]\d{0,9})*)?$/i|required', // ^(?:\d{0,9}(?:[\r\n]\d{0,9})*)?
         ];
     }
 }
